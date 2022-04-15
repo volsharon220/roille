@@ -1,0 +1,154 @@
+<main>
+   
+       <section id="titre">
+            <h1><i class="far fa-dot-circle"></i> ROILLE</h1>
+            <p>Location De Matériel De Chantier</p>
+            <div class="infos">
+                <p><i class="fas fa-phone-square"></i>&nbsp;&nbsp; Tel : (+33) 01.44.45.43.23</p>
+                <p><i class="fas fa-envelope"></i>&nbsp;&nbsp; Mail : contact@roille.com</p>
+            </div>
+       </section>
+
+       <section class="avantageRoille">
+           <section class="avantageInfos">
+                <h2><span>LES AVANTAGES DE </span><br>Louer Un Matériel Avec ROILLE</h2>
+                <p>Avec Wootmat, trouvez le matériel idéal pour votre besoin en un clic.</p>
+                <p>Accédez à un parc de matériels modernes pour la location d’engin de chantier 
+                    de travaux publics avec ou sans chauffeur.</p>
+                <p>Réduisez vos charges dès maintenant en louant du matériel de chantier performant et adapté.</p>
+
+                <article>
+                    <h3>Contactez Notre Équipe De Location</h3>
+                    <div class="infos">
+                        <p><i class="fas fa-phone-square"></i>&nbsp;&nbsp;Tel : (+33) 01.44.45.43.23</p>
+                        <p><i class="fas fa-envelope"></i>&nbsp;&nbsp;Mail : contact@roille.com</p>
+                     </div>
+                </article>
+           </section>
+           <section class="avantage">
+               <section class="avantageDetails">
+                    <article>
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h3>Maîtrisez Votre Budget</h3>
+                            <p>Fini les frais d’entretiens, de réparation et de stockage. Optez pour une location de 
+                                matériels de professionnels.</p>
+                    </article>
+                    <article>
+                            <i class="fas fa-recycle"></i>
+                            <h3>Répondez À Un Besoin Ponctuel Avec Un Engin Neuf</h3>
+                            <p>Gérez les variations de votre activité en louant ponctuellement un engin adapté à 
+                                votre besoin.</p>
+                    </article>
+               </section>
+               <section class="avantageDetails">
+                    <article>
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h3>24/7 Support</h3>
+                            <p>Parce que l’avancement de votre projet est une priorité, nous vous proposons un support 
+                                continu</p>
+                    </article>
+                    <article>
+                            <i class="fas fa-recycle"></i>
+                        <h3>Fiabilité</h3>
+                            <p>Vous pouvez compter sur nos engins. Ils sont bien entretenus avant, pendant et après 
+                                chaque location.</p>
+                    </article>
+               </section>
+
+           </section>
+       </section>
+
+       <section class="cat">
+            <h2>Louer Est Désormais Plus Simple</h2>
+            <section class="grille grilleCat">
+                
+                <?php foreach($categories as $categorie) : ?>
+                    <div >
+                        <p><img src="image/<?= $categorie['imagec']; ?>" alt="image de catégorie"></p>
+                        <a href="produits.php?categorie=<?= $categorie['nom']; ?>">voir plus</a>
+                    </div>
+                <?php endforeach;?>
+            </section>
+       </section>
+       
+       
+       <section id="service">
+           <section class="serviceDetails">
+                <div id="selectionne">
+                    <p>Je sélectionne une location de matériel de chantier en ligne</p>
+                </div>
+
+                <div id="reservation">
+                    <p>je réserve ma location de matériel</p>
+                </div>
+
+                <div id="reception">
+                    <p>je réceptionne mon matériel ou équipement et c'est parti </p>
+                </div>
+           </section><!--
+            --><section id="serviceDetails" class="serviceDetails services"> 
+                <h3>Vous Avez Une Question ?</h3>
+                <h3>Location Matériel De Chantier - Foire Aux Questions (FAQ)</h3>
+                    <a class="categorie" href="categories.php">nos catégories</a>
+                    <a class="contact" href="contact.php">nous contacter</a>
+           </section>
+        
+       </section>
+
+       <section class="meilleurVente">
+           <h2>Meilleures ventes</h2>
+           <ol>
+               <li>Nos offres de location matériel de chantier sont abordables et fiables.</li>
+                <li>Avec de faibles heures de fonctionnement, nos équipements en location sont idéaux pour
+                      les professionnels comme pour les propriétaires.
+                </li>
+                <li>Nous vous épargnons les tracas liés à la logistique du matériel.</li>
+                <li>Vous pouvez désormais vous concentrer sur l’exécution de votre projet, tout en respectant 
+                    votre budget.</li>
+                <li>Vous pouvez désormais vous concentrer sur l’exécution de votre projet, tout en respectant votre budget.
+                    de la construction et de l’agriculture.
+                </li>
+
+
+                <p>Nos produits les plus demandés sont : </p>
+           </ol>
+       </section>
+
+       <section class="proposeMateriel">
+           <h2>Vous proposez un matériel</h2>
+           <article>
+               <div class="proposeDetails">
+                   
+                     <img src="./image/teamwork-engineer-shake-hand-on-site-construction-2022-03-01-09-15-54-utc-1536x1024.jpg" alt="">
+                </div> <!-- 
+                --><div class="proposeDetails">
+                        <div>
+                            <h3>Je Communique Mon Annonce À Roille</h3>
+                            <ol>
+                                <li>prix de location, caution de location, coût du conducteur et forfait de livraison)</li>
+                                <li>choix du calendrier de disponibilité du matériel proposé en location </li>
+                                <li>choix des options de location (location avec ou sans livraison, location avec ou sans conducteur</li>
+                            </ol>
+                         </div>
+
+                         <div>
+                            <h3>Je Reçois Les Demandes De Location</h3>
+                            <ol>
+                                <li>Réception des informations détaillés de la demande et du client en acceptant la location</li>
+                                <li>prise de contact avec le clients pour fixer le rendez-vous de remise de l’équipement</li>
+                                <li>encaissement du réglèment de la location et de la caution de location par carte bancaire</li>
+                            </ol>
+                         </div>
+                         <div>
+                            <h3>Je Mets À Disposition Du Client L'équipement</h3>
+                            <ol>
+                                <li>état des lieux avec le locataire et nous signons le contrat de location</li>
+                                <li>remise de l’équipement au locataire en suivant les conditions contractuelles</li>
+                                <li>état des lieux de retour avec le locataire et reprise du matériél</li>
+                            </ol>
+                         </div>
+                             <a class="categorie" href="categories.php">nos catégories</a>
+                            <a class="contact" href="contact.php">nous contacter</a>
+                   </div>
+            </article>
+       </section>

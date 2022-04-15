@@ -1,0 +1,110 @@
+<div id="inscription">
+             <h1>Rejoignez nous</h1>
+                <p>Location De Matériel De Chantier</p>
+</div>
+
+       
+       <section class="globalInfosService globalInfosContact">
+            <h1>Inscrivez-vous et accédez à tous nos services </h1>
+           
+            <div>
+                <div class="infosContact infosService">
+                <form method="POST" action=''>        
+                    <div>
+                        <input type="text" name="nom" id="nom" placeholder="Nom*">
+                        <div>
+                                <?php if(!empty($errors['nom'])) :?>
+                                    <p class='erreur'><?= $errors['nom']; ?></p>
+                                <?php endif; ?>
+                            </div>
+                    </div>
+                    <div>
+                        <input type="text" name="prenom" id="prenom" placeholder="Prénom*">
+                        <div>
+                                <?php if(!empty($errors['prenom'])) :?>
+                                    <p class='erreur'><?= $errors['prenom']; ?></p>
+                                <?php endif; ?>
+                            </div>
+                    </div>
+
+                    <div>
+                        <input type="password" name="mdp" placeholder="Mot de passe*">
+                        <div>
+                                <?php if(!empty($errors['mdp'])) :?>
+                                    <p class='erreur'><?= $errors['mdp']; ?></p>
+                                <?php endif; ?>
+                            </div>
+                    </div>
+                    <div>
+                        <input type="text" name='addresse' placeholder="Addresse*">
+                        <div>
+                                <?php if(!empty($errors['addresse'])) :?>
+                                    <p class='erreur'><?= $errors['addresse']; ?></p>
+                                <?php endif; ?>
+                            </div>
+                    </div>
+                    <div>
+                        <input type="text" name="codeP" placeholder="Code postale*">
+                        <div>
+                                <?php if(!empty($errors['codeP'])) :?>
+                                    <p class='erreur'><?= $errors['codeP']; ?></p>
+                                <?php endif; ?>
+                            </div>
+                    </div>
+                    <div>
+                        <input type="text" name="ville" placeholder="Ville*">
+                        <div>
+                                <?php if(!empty($errors['ville'])) :?>
+                                    <p class='erreur'><?= $errors['ville']; ?></p>
+                                <?php endif; ?>
+                            </div>
+                    </div>
+                            
+                    <div>
+                        <input type="text" name="pays" placeholder="Pays*">
+                        <div>
+                                <?php if(!empty($errors['pays'])) :?>
+                                    <p class='erreur'><?= $errors['pays']; ?></p>
+                                <?php endif; ?>
+                            </div>
+                    </div>
+                    <div>
+                        <input type="tel" name='phone' placeholder="Numéro de Téléphone*">
+                        <div>
+                                <?php if(!empty($errors['phone'])) :?>
+                                    <p class='erreur'><?= $errors['phone']; ?></p>
+                                <?php endif; ?>
+                            </div>
+                        
+                    <div>
+                            <input type="mail" name='mail' placeholder="Mail*">
+                            <div>
+                                <?php if(!empty($errors['mail'])) :?>
+                                    <p class='erreur'><?= $errors['mail']; ?></p>
+                                <?php endif; ?>
+                            </div>
+                    </div>
+                    <div>
+                        <?php if(isset($succes)) :?>
+                                        <p class='succes'><?= $succes; ?></p>
+                        <?php endif; ?>
+                    </div>
+                        <input type="submit" name="envoyer" value="Je crée mon compte">
+                        <a href="connexion.php"><p>Vous avez déja un compte ? <span>Connectez-vous</span></p></a>
+                </form>
+                </div>
+            </div>   
+           
+            <div class="infosContact infosService">
+                <h3>Contactez Notre Équipe De Location</h3>
+                <div>
+                    <p><i class="fas fa-phone-square"></i>&nbsp;&nbsp; Tel : (+33) 01.44.45.43.23</p>
+                    <p><i class="fas fa-envelope"></i>&nbsp;&nbsp; Mail : contact@roille.com</p>
+                </div>
+                <p>Vous avez besoin d’aide pour votre location, ou vous voulez simplement en savoir plus sur 
+                    nos offres de location ? Notre équipe est là pour vous aider</p>
+
+                    <a class="categorie" href="http://">nos catégories</a>
+                    <a class="contact" href="http://">nous contacter</a>
+            </div>
+       </section>

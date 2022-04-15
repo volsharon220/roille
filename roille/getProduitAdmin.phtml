@@ -1,0 +1,30 @@
+<div id="produits">
+                <h1>Administration</h1>
+       </div>
+| longueur             | decimal(10,2) | YES  |     | NULL    |                |
+| environnementTravail | varchar(20)   | YES  |     | NULL    |                |
+| energie              | decimal(10,2) | YES  |     | NULL    |                |
+| puissance            | decimal(10,2) | YES  |     | NULL    |                |
+| poids                | decimal(10,2) | YES  |     | NULL    |                |
+| ref                  | varchar(20)   | YES  |     | NULL    |                |
+| quantestock          | int           | NO   |     | NULL    |                |
+| nomcat
+
+
+<table>
+    <?php foreach ($produits as $unProduit) : ?>
+    <tr>
+        <th>image</th>
+        <th>nomp</th>
+        <th>descpUn</th>
+        <th>descpDeux</th>
+        <th>prixUnite</th>
+        <th>Informations complémentaires</th>
+
+    </tr>
+    <tr>
+        <td><?= $unProduit['imagep']; ?></td>
+        <td></td>
+    </tr>
+    <?php endforeach; ?>
+</table>

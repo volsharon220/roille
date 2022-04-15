@@ -1,0 +1,45 @@
+/* FOOTER */
+footer{
+    text-align: center;
+     background-image:  linear-gradient(
+        rgba(181, 112, 112, 0.6), 
+        #00272d
+      ),url(../image/sunset-219354_1920.jpg);
+     
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+     background-position:50% 50% ;
+    height: 386px;
+    margin: 0;
+    padding: 70px;
+}
+
+footer h3,
+footer p{
+    color:#f9bb2d;
+    text-align: center;
+}
+footer div{
+    display: inline-block;
+    width: 30%;
+    color: #fff;
+    vertical-align: top;
+    text-align: justify;
+}
+
+footer .titrePiedPage{
+    color: #fff;
+    font-size: 2.7rem;
+}
+
+footer li{
+    list-style-type: none;
+    padding: 4px;
+    margin-left: 50px;
+}
+.copyright p{
+    color: #666;
+    padding: 12px 8px 4px 8px;
+    
+}

@@ -1,0 +1,114 @@
+<div id="detailsProduit">
+            <?php foreach($produit as $unProduit) : ?>
+                <h1><?= strtoupper($unProduit['nomp']); ?></h1>
+            <?php endforeach;?>   
+            <p>Location De Matériel De Chantier</p>
+       </div>
+
+
+       <section class="category">
+            <section class="categoryProduct">
+                <?php foreach($categories as $categorie) : ?>
+                
+                    <ul>
+                        <li>
+                            <a href="produits.php?categorie=<?= $categorie['nom']; ?>">
+                                     <i class="fa-solid fa-chevron-right"></i><?= $categorie['nom']; ?>
+                            </a>
+                        </li>
+                    </ul>
+                
+                <?php endforeach;?>
+            </section><!--
+
+                -->
+                <section class="categoryProductGrille">
+                    <section>
+                        <?php foreach($produit as $unProduit) : ?>
+                            <div>
+                                <div class="detailproduit">
+                                    <img src="image/<?= $unProduit['imagep']; ?>" alt="image du produit">
+                                </div><!--
+                                --><div class="detailproduit">
+                                        <h2><?= $unProduit['nomp']; ?></h2>
+                                        <h3><?= $unProduit['prixUnite']; ?> €</h3>
+                                        <p><?= $unProduit['descpUn']; ?></p>
+
+                                        
+                                        <form method="post" action="?action=add&id_produit=<?php echo $unProduit["id_produit"]; ?>">
+                                            <div class="cart-action">
+                                                <div>
+                                                    <label for="dateDebut">dateDebut</label><br>
+                                                    <input type="date" name="dateD" id="dateDebut"/>
+                                                </div>
+                                                <div class="dateFinLocation">
+                                                    <label for="dateFin">dateFin</label><br>
+                                                    <input type="date" name="dateF"  id="dateFin"/>
+                                                </div><br>
+                                                <div>
+                                                    <label for="quantity">Quantité</label><br>
+                                                    <input type="text" id="quantity" class="product-quantity" name="quantity" value="1" size="2"/><br>
+                                                </div><br>
+                                                <div>
+                                                    <?php if(!empty($stock['quantestock'])) :?>
+                                                            <p class='erreur'><?= $stock['quantestock']; ?></p>
+                                                    <?php endif; ?>
+                                                </div>
+                                             <input type="submit" value="Louer" name="louer" class="btnAddAction" />
+                                            </div>
+                                        </form>
+                                    </div>
+                            </div>
+                    </section>
+                    <section class="detailComplementaireProduit">
+                        <div>
+                            <h3>Description</h3>
+                            <p><?= $unProduit['descpDeux']; ?></p>
+                        </div>
+                  
+                        <div>
+                            
+                            <table>
+                                <tr>
+                                    <th colspan=2>Informations Complémentaires</th>
+                                </tr>
+                                <tr>
+                                   <th>charge</th>
+                                    <td><?= $unProduit['charge']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>hauteurTravail</th>
+                                    <td><?= $unProduit['hauteurTravail']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>longueur</th>
+                                    <td><?= $unProduit['longueur']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>largueur</th>
+                                    <td><?= $unProduit['largeur']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>environnementTravail</th>
+                                    <td><?= $unProduit['environnementTravail']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>puissance</th>
+                                    <td><?= $unProduit['puissance']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>poids</th>
+                                    <td><?= $unProduit['poids']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>ref</th>
+                                    <td><?= $unProduit['ref']; ?></td>
+                                </tr>
+                            </table>
+                        </div>
+                    
+                    </section>
+                    <?php endforeach;?>
+                </section>
+
+       </section>

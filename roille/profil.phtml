@@ -1,0 +1,35 @@
+
+<div id="profil">
+                <h1>Bonjour <?= $userInfo['nom']; ?></h1>
+       </div>
+       
+    
+    <div class="infosClientProfil"> 
+           <h1>Mes informations personnelles</h1>
+           <?php if(isset($profilUserParc['id_client'])) : ?>
+                <ul>
+                    <li><strong>Nom : </strong><?= $profilUserParc['nom'] ?></li>
+                    <li><strong>Prénom : </strong><?= $profilUserParc['prenom'] ?></li>
+                    <li><strong>Adresse : </strong><?= $profilUserParc['addresse'] ?></li>
+                    <li><strong>Code Postal : </strong><?= $profilUserParc['codeP'] ?></li>
+                    <li><strong>Ville : </strong><?= $profilUserParc['ville'] ?></li>
+                    <li><strong>Pays : </strong><?= $profilUserParc['pays'] ?></li>
+                    <li><strong>Téléphone : </strong><?= $profilUserParc['phone'] ?></li>
+                    <li><strong>Email : </strong><?= $profilUserParc['mail'] ?></li>
+                </ul>
+                
+            <?php elseif(isset($profilUserPro['id_client'])) : ?>
+                <ul>
+                    <li><strong>Nom : </strong><?= $profilUserPro['nom'] ?></li>
+                    <li><strong>Adresse : </strong><?= $profilUserPro['addresse'] ?></li>
+                    <li><strong>Code Postal : </strong><?= $profilUserPro['codeP'] ?></li>
+                    <li><strong>Ville : </strong><?= $profilUserPro['ville'] ?></li>
+                    <li><strong>Pays : </strong><?= $profilUserPro['pays'] ?></li>
+                    <li><strong>Téléphone : </strong><?= $profilUserPro['phone'] ?></li>
+                    <li><strong>Email : </strong><?= $profilUserPro['mail'] ?></li>
+                    <li><strong>Numéro de Siret : </strong><?= $profilUserPro['numSiret'] ?></li>
+                    <li><strong>Statut Juridique : </strong><?= $profilUserPro['statut_juridique'] ?></li>
+                </ul>
+            <?php endif; ?>
+            <a href="modifierProfil.php?id=<?= $_SESSION['id_client'] ?>">Modifier</a>
+       </div>

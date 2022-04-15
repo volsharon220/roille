@@ -1,0 +1,587 @@
+*{
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-sizing: border-box;
+    -ms-sizing: border-box;
+    -khtml-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+ }
+ html{
+     font-size:62.5%;
+ }
+ body{
+    
+    margin:0;
+    padding:0;
+    font-family: 'Open Sans', sans-serif;
+    color: #666;
+	font-size: 1.4rem;
+ }
+
+
+ /* HEADER */
+ #titre,
+ #contact,
+ #inscription,
+ #connexion,
+ #categories,
+ #detailsProduit,
+ #profil{
+   text-align: center;
+     background-image:  linear-gradient(
+        rgba(181, 112, 112, 0.6), 
+        #00272d
+      ),url(../image/excavator-g6896813dd_1280.jpg);
+     
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+     background-position:50% 50% ;
+    height: 513px;
+    margin: 0;
+    padding: 90px;    
+ }
+
+ #contact,
+ #inscription,
+ #connexion,
+ #categories,
+ #detailsProduit,
+ #profil{
+   height: 313px; 
+ }
+
+ #titre .infos{
+   position: absolute;
+   background-color: #fff;
+   width: 40%;
+   bottom: 0;
+   padding:10px;
+   border-radius: 10px;
+}
+
+
+
+
+/*   TITRE*/
+
+#titre h1{
+   color:#fff;
+   font-size: 9rem;
+}
+
+#contact h1,
+#inscription h1,
+#connexion h1,
+#categories h1,
+#detailsProduit h1,
+#profil h1{
+  font-size: 3rem;
+  color:#fff;
+}
+
+.cat h2,
+.meilleurVente h2,
+.proposeMateriel h2{
+   text-align: center;
+   color: #00272d;
+   font-size: 4rem;
+   margin: 80px 0 80px 0;
+}
+
+.avantageInfos h2{
+   font-size: 2.5rem;
+}
+.avantageInfos h3{
+   font-size: 2rem;
+}
+ .avantageInfos span, 
+ .avantageInfos h3,
+ .categoryProductGrille .detailproduit h3{
+    color: #f9bb2d;
+}
+
+.categoryProductGrille .detailproduit h3{
+   font-size: 2.6rem;
+}
+
+.avantageDetails article h3{
+   font-size: 1.6rem;
+}
+
+
+.proposeMateriel .proposeDetails h3,
+.infosContact h3,
+.serviceDetails h3{
+  font-size: 2.3rem;
+  color: #00272d;
+}
+
+.globalInfosContact h1,
+.categoryProductGrille .detailproduit h2{
+   margin-bottom: 120px;
+   font-size: 4rem;
+   color: #00272d;
+}
+
+
+.categoryProductGrille .detailproduit h2{
+   margin-bottom: 30px;
+}
+
+.grilleCategory div h3{
+   font-size: 2rem;
+   color:#00272d;
+   margin:35px 0 5px 0 ;
+}
+
+.categoryProductGrille .grilleCategory h3{
+   font-size: 1.6rem;
+}
+
+/* paragraphe */
+
+#titre p,
+ #contact p,
+ #inscription p,
+ #connexion p,
+ #categories p,
+ #detailsProduit p{
+    color:#fff;
+    font-size: 4rem;
+    margin-left: 20px;
+ }
+
+ #titre div p  ,
+ .infosContact p {
+    display: inline-block;
+    color:black;
+    font-size: 1.5rem;
+ }
+ .infosContact p{
+    padding-bottom: 20px;
+ }
+
+
+.grilleCategory div p {
+   font-size: 1.2rem ;
+   padding: 8px;
+   line-height: 1.9rem;
+}
+
+.categoryProductGrille .detailproduit p,
+.detailComplementaireProduit p{
+   padding :15px;
+   line-height: 30px;
+   letter-spacing: 2px;
+}
+
+ /*  hypérlien */
+
+ .proposeMateriel .proposeDetails a,
+.infosContact a,
+.serviceDetails .categorie,
+.serviceDetails .contact{
+   text-decoration: none;
+   color:#fff;
+   padding: 10px 70px 10px 70px;
+   border-radius: 7px;
+}
+
+.grilleCat div a,
+.grilleCategory div a{
+   text-decoration: none;
+   color:#fff;
+   background-color: #f9bb2d;
+   padding:10px 20px 10px 20px;
+   border-radius: 5px;
+}
+
+.grilleCategory div a{
+   padding:15px 80px 15px 80px;
+}
+
+.grilleCat div a:hover,
+.grilleCategory div a:hover{
+   background-color:#00272d;
+}
+
+.categoryProductGrille .grilleCategory a{
+   padding:10px 20px 10px 20px;
+}
+
+.category .categoryProduct li a{
+   text-decoration: none;
+   color: #666;
+}
+
+/* FONTWESOME */
+#titre .fas   {
+   font-size: 2.7rem;
+   color: #f9bb2d;
+ }
+
+ #titre .fas:hover{
+   color: #00272d;
+ }
+
+ .avantageDetails article .fas{
+   color: #f9bb2d;
+   font-size: 3rem;
+}
+
+.category .categoryProduct li a .fa-solid{
+   color:#f9bb2d;
+   margin-right: 5px;
+}
+ 
+
+ .avantageRoille{
+    text-align: center;
+     margin-top: 50px;
+     padding: 30px;
+ }
+ .avantageInfos{
+     display: inline-block;
+     text-align: left;
+     padding: 10px;
+     width: 45%;
+ }
+
+ .avantage{
+     display: inline-block;
+     width: 45%;
+     vertical-align: top;
+ }
+
+.avantage .avantageDetails{
+   display: inline-block;
+   width: 45%;
+   vertical-align: top;
+}
+.avantageDetails article{
+   text-align: center;
+   padding: 10px;
+}
+
+
+
+
+#service{
+   text-align: center;
+   margin: auto;
+   max-width: 80%;
+   margin-top: 80px;
+   margin-bottom: 80px;
+}
+.serviceDetails{
+   display: inline-block;
+   width: 50%;
+}
+
+.faux li{
+   text-align: justify;
+   padding:  12px;
+}
+
+.serviceDetails div{
+   
+   border-radius: 5px;
+   padding: 8px;
+   margin-top: 3px;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.globalInfosService{
+   margin: auto;
+   text-align: center;
+}
+.infosService{
+   display: inline-block;
+   width: 40%;
+   text-align: justify;
+   vertical-align: top;
+   margin-top: 40px;
+}
+
+
+.meilleurVente{
+   text-align: center;
+}
+
+
+.meilleurVente li{
+   list-style-type: none;
+   padding: 13px;
+}
+
+/*index.php ---- partie proposer un materiel*/
+.proposeMateriel{
+   width: 90%;
+   margin: auto;
+   margin-bottom: 120px;
+}
+.proposeMateriel .proposeDetails img{   
+   width: 100%;
+   border-radius: 20px;
+}
+.proposeMateriel .proposeDetails{
+   display: inline-block;
+   width: 49%;
+   text-align: center;
+   padding: 20px;
+   vertical-align: middle;
+}
+
+
+
+
+.proposeMateriel .proposeDetails ol{
+   text-align: justify;
+   padding: 15px;
+}
+
+
+.proposeMateriel .proposeDetails .categorie,
+.infosContact .categorie,
+.serviceDetails .categorie{
+ background-color: #f9bb2d;
+}
+.proposeMateriel .proposeDetails .contact,
+.infosContact .contact,
+.serviceDetails .contact{
+   background-color: #00272d;
+}
+
+.proposeMateriel .proposeDetails .categorie:hover,
+.infosContact .categorie:hover,
+
+.globalInfosService .ajoutParticulier:hover,
+.globalInfosService .ajoutProfessionnel:hover,
+.serviceDetails .categorie:hover{
+   background-color: #00272d;
+  }
+  .proposeMateriel .proposeDetails .contact:hover,
+  .infosContact .contact:hover,
+  .serviceDetails .contact:hover{
+     background-color: #f9bb2d;
+  }
+
+  .colo{
+   color: yellow;
+  }
+
+
+  /* CONTACT.PHP */
+.infosContact input,
+.infosContact textarea{
+ width: 80%;
+ padding :10px;
+ margin: 5px 0 ;
+}
+
+.globalInfosContact {
+   padding: 30px;
+   margin: 60px 0;
+}
+.infosContact input[type="submit"],
+.detailproduit input[type="submit"]{
+   background-color: #f9bb2d;
+   border: none;
+   color: #fff;
+   width: 40%;
+   margin-top: 20px;
+   border-radius: 5px;
+}
+
+
+.detailproduit input[type="submit"]{
+   width: 40%;
+   margin-top: 20px;
+   padding: 10px;
+}
+
+.detailproduit input[type="submit"]:hover{
+   background-color: #00272d;
+}
+
+.cart-action div{
+   display: inline-block;
+}
+
+.cart-action div input[type="date"]{
+   padding :10px;
+   width: 100%;
+   margin: 10px 0 20px 0;
+}
+
+.cart-action .dateFinLocation{
+   margin: 30px;
+}
+
+.detailproduit input[type="text"]{
+   padding :10px;
+   margin: 15px 0 15px 0;
+}
+
+
+.globalInfosContact .erreur,
+.globalInfosContact .succes,
+span{
+   color:#f9bb2d;
+}
+
+
+
+.globalInfosService .ajoutParticulier,
+.globalInfosService .ajoutProfessionnel{
+   background-color: #f9bb2d;
+   width: 40%;
+   color : #fff;
+   text-decoration: none;
+   padding: 10px 140px 10px 140px;
+   border-radius: 7px;
+   
+}
+
+
+.grille{
+   margin: 5% 0 5% 5%;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grilleCategory{
+   padding: 40px;
+}
+
+.grille img{
+   width: 90%;
+   margin: 0 0 5% 0;
+   transition: 1s ease-in-out;
+}
+
+.grille img:hover{
+   transform: scale(1.1);
+   transition: all 1s ease;
+}
+
+.grilleCat,
+.grilleCategory{
+   width: 70%;
+   text-align: center;
+   margin: auto;
+}
+
+.grilleCategory{
+   width:87%;
+}
+
+.grilleCat div,
+.grilleCategory div{
+   padding : 0 0 20px 0;
+   margin :5px 15px 15px 5px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.grilleCat div img,
+.grilleCategory div img{
+   width: 70%;
+}
+
+.categoryProductGrille .grilleCategory img{
+   width: 90%;
+}
+
+.infosService iframe{
+   width: 80%;
+   border-radius: 10px;
+}
+.infosIframe{
+   vertical-align: middle;
+}
+
+.categoryProductGrille{
+   display: inline-block;
+   width: 76%;
+}
+
+.category{
+   margin: 80px 0 80px 0;
+}
+.category .categoryProduct{
+   display: inline-block;
+   width: 22%;
+   vertical-align: top;
+}
+
+.category .categoryProduct li{
+   list-style-type: none;
+   padding :15px;
+   border-bottom: 1px solid #f9bb2d;
+}
+
+.categoryProductGrille .detailproduit{
+   display: inline-block;
+   width: 50%;
+   vertical-align: top;
+}
+
+.detailComplementaireProduit div{
+   padding: 20px;
+}
+
+.detailComplementaireProduit table{
+   width: 60%;
+}
+
+.detailComplementaireProduit table td,
+.detailComplementaireProduit table th{
+   padding: 15px;
+}
+
+.detailComplementaireProduit table,
+.detailComplementaireProduit table td,
+.detailComplementaireProduit table th,
+.detailComplementaireProduit table tr{
+   text-align: left;
+   border-bottom:1px solid #666;
+    border-collapse: collapse;
+}
+
+
+.detailComplementaireProduit table td{
+   border-left:1px solid #666;
+}
+
+
+.container_input{
+      position: relative;
+}
+.container_input .visible{
+   display: none;
+   color: #f9bb2d;
+}
+.globalInfosContact .infosContact .container_input #eyes{
+   position: absolute;
+   right: 120px;
+   top: 39%;
+   color: #f9bb2d;
+}
+.globalInfosContact .infosContact .rememberM input{
+   width: 5%;
+
+}
+.infosClientProfil{
+   width: 50%;
+   margin: auto;
+   text-align: center;
+}
+
+.infosClientProfil li{
+  list-style-type: none;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 2px solid #f9bb2d;
+}

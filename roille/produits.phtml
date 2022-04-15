@@ -1,0 +1,38 @@
+<div id="categories">
+            <h1>Nos catégories</h1>
+            <p>Location De Matériel De Chantier</p>
+       </div>
+
+
+       <section class="category">
+            <section class="categoryProduct">
+                <?php foreach($categories as $categorie) : ?>
+                
+                    <ul>
+                        <li>
+                            <a href="produits.php?categorie=<?= $categorie['nom']; ?>">
+                                     <i class="fa-solid fa-chevron-right"></i><?= $categorie['nom']; ?>
+                            </a>
+                        </li>
+                    </ul>
+                
+                <?php endforeach;?>
+            </section><!--
+
+                -->
+                <section class="categoryProductGrille">
+                    <section  class="grille grilleCategory">
+                        <?php foreach($produits as $produit) : ?>
+                    
+                            <div>
+                                <p><img src="image/<?= $produit['imagep']; ?>" alt="image du produit"></p>
+                                <h3><?= $produit['nomp']; ?></h3>
+                                <p><?= $produit['prixUnite']; ?> €</p>
+                                <a href="detailsProduits.php?id_produit=<?= $produit['id_produit']; ?>">voir plus</a>
+                            </div>
+                    
+                        <?php endforeach;?>
+                    </section>
+                </section>
+
+       </section>

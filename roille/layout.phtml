@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+                <?php
+                    include('./head/head.php');
+                ?>
+
+<body>
+    <!-- En-tête commune de l'application -->
+    <header>
+        <?php
+            include('./header/header.php');
+        ?>
+    </header>
+    
+    <main>
+        <!-- Chargement du template PHTML spécifié par le programme PHP -->
+        <?php include $template.'.phtml' ?>
+    </main>
+
+    <script src="js/main.js"></script>
+
+    <!-- Pied de page commun de l'application -->
+    <footer>
+            <?php
+                include('./footer/footer.php');
+             ?>
+    </footer>
+</body>
+</html>

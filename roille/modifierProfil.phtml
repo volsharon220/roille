@@ -1,0 +1,95 @@
+
+
+       
+       <section class="globalInfosService globalInfosContact">
+           
+            <div>
+                <div class="infosContact infosService">
+                    <?php if(isset($profilUserParc['id_client'])) : ?>
+                        <form method="POST" action='' enctype="multipart/form-data">
+                            <div>
+                                <label for='newPicturs' class='custom_file_upload'>Photo de profil</label>
+                                <input type="file" name="newPicturs" id="newPicturs">
+                            </div>
+                            <div>
+                                <input type="hidden" name="numId" value="<?= $profilUserParc['id_client']; ?>">  
+                            </div>
+                            <div>
+                                <input type="text" name="nom" value="<?= $profilUserParc['nom']; ?>">  
+                            </div>
+                            <div>
+                                <input type="text" name="prenom" value="<?= $profilUserParc['prenom']; ?>">    
+                            </div>
+                            <div>
+                                <input type="password" name="mdp" placholder="Mot de passe">  
+                            </div>
+                            <div>
+                                <input type="text" name='addresse' value="<?= $profilUserParc['addresse']; ?>">         
+                            </div>
+                            <div>
+                                <input type="text" name="codeP" value="<?= $profilUserParc['codeP']; ?>">                    
+                            </div>
+                            <div>
+                                <input type="text" name="ville" value="<?= $profilUserParc['ville']; ?>">                
+                            </div>                      
+                            <div>
+                                <input type="text" name="pays" value="<?= $profilUserParc['pays']; ?>">                    
+                            </div>
+                            <div>
+                                <input type="tel" name='phone' value="<?= $profilUserParc['phone']; ?>">                    
+                            <div>
+                                    <input type="mail" name='mail' value="<?= $profilUserParc['mail']; ?>">                        
+                            </div>
+                            <div>                    
+                            </div>
+                                <input type="submit" name="envoyer" value="Modifier">
+                        </form>
+                    <?php elseif(isset($profilUserPro['id_client'])) : ?>
+                            
+                            <form method="POST" action="" enctype="multipart/form-data">
+                                <div>
+                                    <label for='newPicturs' class='custom_file_upload'>Photo de profil</label>
+                                    <input type="file" name="newPicturs" id="newPicturs">
+                                </div>
+                                <div>
+                                    <input type="hidden" name="numId" value="<?= $profilUserPro['id_client']; ?>">  
+                                </div>
+                                <div>
+                                    <input type="text" name="nom" value="<?= $profilUserPro['nom']; ?>">
+                                </div>
+
+                                <div>
+                                    <input type="password" name="mdp" placeholder="Mot de passe">
+                                </div>
+                                <div>
+                                    <input type="text" name='addresse' value="<?= $profilUserPro['addresse']; ?>">
+                                </div>
+                                <div>
+                                    <input type="text" name="codeP" value="<?= $profilUserPro['codeP']; ?>">
+                                </div>
+                                <div>
+                                    <input type="text" name="ville" value="<?= $profilUserPro['ville']; ?>">
+                                </div>
+                                        
+                                <div>
+                                    <input type="text" name="pays" value="<?= $profilUserPro['pays']; ?>">
+                                </div>
+                                <div>
+                                    <input type="tel" name='phone' value="<?= $profilUserPro['phone']; ?>">
+                                <div>
+                                        <input type="mail" name='mail' value="<?= $profilUserPro['mail']; ?>">
+                                </div>
+                                <div>
+                                        <input type="text" name='siret' value="<?= $profilUserPro['numSiret']; ?>">
+                                </div>
+                                <div>
+                                        <input type="text" name='stautJ' value="<?= $profilUserPro['statut_juridique']; ?>">
+                                </div>
+                                <input type="submit" name="envoyer" value="Modifier">
+                            </form>
+                    <?php endif; ?>
+                </div>
+            </div>   
+           
+            
+       </section>

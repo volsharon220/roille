@@ -1,0 +1,42 @@
+<div id="connexion">
+                <h1>Connectez vous</h1>
+                <p>Location De Matériel De Chantier</p>
+        </div>
+<div class="globalInfosService globalInfosContact">
+    <h1>formulaire de connexion</h1>
+    <div class="infosContact infosService">
+        <form action="" method="post">
+
+            <?php if(isset($erreur)) echo "<p>".$erreur."</p>"?>
+
+            <input type="text" name="nom" placeholder="Entrez votre identifiant :"><br><br>
+            <div class="container_input">
+                <input type="password" name="mdp" id="pass" placeholder="Entrez votre mot de pass :">
+                <div id="eyes">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <br><br>
+            <div class="rememberM">
+                <input type="checkbox" name="rememberMe"  id="rememberMe">
+                <label for="rememberMe">Se souvenier de moi</label>
+            </div>
+
+            <input type="submit" value="Envoyer" name="ok">
+        </form>
+        <a href="contact.php"><p>Vous n'avez pas un compte ? <span>Inscrivez-vous</span></p></a>
+    </div>
+    <div class="infosContact infosService">
+                <h3>Contactez Notre Équipe De Location</h3>
+                <div>
+                    <p><i class="fas fa-phone-square"></i>&nbsp;&nbsp; Tel : (+33) 01.44.45.43.23</p>
+                    <p><i class="fas fa-envelope"></i>&nbsp;&nbsp; Mail : contact@roille.com</p>
+                </div>
+                <p>Vous avez besoin d’aide pour votre location, ou vous voulez simplement en savoir plus sur 
+                    nos offres de location ? Notre équipe est là pour vous aider</p>
+
+                    <a class="categorie" href="http://">nos catégories</a>
+                    <a class="contact" href="http://">nous contacter</a>
+            </div>
+</div>
+

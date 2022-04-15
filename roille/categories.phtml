@@ -1,0 +1,40 @@
+<div id="categories">
+            <h1>Nos catégories</h1>
+            <p>Location De Matériel De Chantier</p>
+       </div>
+
+       <section class="grille grilleCategory">
+            <?php foreach($categories as $categorie) : ?>
+            
+                    <div>
+                        <p><img src="image/<?= $categorie['imagec']; ?>" alt="image de catégorie"></p>
+                        <a href="produits.php?categorie=<?= $categorie['nom']; ?>">voir plus</a>
+                        <h3><?= $categorie['nom']; ?></h3>
+                        <p><?= $categorie['descc']; ?></p>
+                    </div>
+            
+            <?php endforeach;?>
+        </section>
+
+        <section class="globalInfosService globalInfosContact">
+            <div class="infosContact infosService infosIframe">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11376654.143867694!2d-6.9322491
+                             11537538!3d45.881243114560725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54
+                             a02933785731%3A0x6bfd3f96c747d9f7!2sFrance!5e0!3m2!1sfr!2sfr!4v1648273054945!5m2!1sfr
+                             !2sfr" width="700" height="350" style="border:3;" allowfullscreen="" loading="lazy" 
+                             referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="infosContact infosService infosIframe">
+                <h3>Contactez Notre Équipe De Location</h3>
+                <div>
+                    <p><i class="fas fa-phone-square"></i>&nbsp;&nbsp; Tel : (+33) 01.44.45.43.23</p>
+                    <p><i class="fas fa-envelope"></i>&nbsp;&nbsp; Mail : contact@roille.com</p>
+                </div>
+                <p>Vous avez besoin d’aide pour votre location, ou vous voulez simplement en savoir plus sur 
+                    nos offres de location ? Notre équipe est là pour vous aider</p>
+
+                    <a class="categorie" href="http://">nos catégories</a>
+                    <a class="contact" href="http://">nous contacter</a>
+            </div>
+        </section>
