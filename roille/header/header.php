@@ -1,6 +1,6 @@
 <nav>
             <div>
-                <img src="image/logo_roille.png" alt="">
+                <img src="image/logo_roille.png" alt="logo">
             </div>
         <ul>
             
@@ -9,7 +9,6 @@
                 <li><a href="categories.php">Categories</a></li>
                 <li><a href="#">Guides</a></li>
                 <li><a href="#">Location d'engeins</a></li>
-                <li><a href="contact.php">Nous contactez</a></li>
                 <li>
                     <a href='profil.php?id=<?= intval($userInfo['id_client']); ?>'><span>Bonjour <?= htmlspecialchars($userInfo['nom']); ?></span>
                         <?php if(!empty($userInfo['avatar'])) :?>
@@ -29,6 +28,7 @@
 
                                 <?php elseif(isset($userInfo['id_client']) && $userInfo['roleClient']==null) : ?>
                                     <li><a href="profil.php?id=<?= intval($userInfo['id_client']); ?>">mon profil</a></li>
+                                    <li><a href="histoCommande.php?id=<?= intval($userInfo['id_client']); ?>">mes commandes</a></li>
                                     <li><a href="deConnect.php">se déconnecter</a></li>
                                 <?php endif; ?>
                                 
@@ -48,5 +48,3 @@
             
         </ul>
     </nav>
-
-    
