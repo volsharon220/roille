@@ -152,3 +152,15 @@
                    </div>
             </article>
        </section>
+       <?php if(!isset($_COOKIE['accepte-cookie'])) : ?>
+            <div class="banniere">
+                <div class="text-banniere">
+                    <p>Nous diffusons des cookies sur Roille dans le but d'analyser le trafic et vous procurer 
+                        la meilleure expérience d'utilisateur. En cliquant sur “Accepter tous”, vous consentez 
+                        d'utiliser tous les cookies.</p>
+                </div>
+                <div class="button-banniere">
+                    <a href="?accepte-cookie=">Accepter tous</a>
+                </div>
+            </div>
+        <?php endif; ?>

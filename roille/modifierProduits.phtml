@@ -1,0 +1,67 @@
+
+<section class="globalInfosService globalInfosContact">
+    <div class="infosContact infosService">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div>                                      
+                    <input type="file" name="imageP" value='<?= $produit['imagep'] ?>'>
+            </div>
+            
+            <div>
+                <input type="text" name="nomp" value='<?= $produit['nomp'] ?>'>
+            </div>                                    
+            <div>
+                <input type="text" name="prixUnite" value='<?= $produit['prixUnite'] ?>'>
+            </div>
+            
+            <div>
+                    <input type="text" name="nomc" value="<?= $produit['nomcat'] ?>">
+            </div>
+
+            <div>
+                <textarea name="descpUn" id="" cols="30" rows="10"><?= $produit['descpUn'] ?></textarea>
+            </div>
+            <div>
+                <textarea name="descpDeux" id="" cols="30" rows="10"><?= $produit['descpDeux'] ?></textarea>
+            </div>
+    </div>
+    <div class="infosContact infosService">
+                    <div>
+                        <input type="text" name="quantite" value='<?= $produit['quantestock'] ?>'>
+                    </div>
+                    <div>
+                        <input type="text" name="charge" value='<?= $produit['charge'] ?>'>
+                    </div> 
+
+                    <div>
+                        <input type="text" name="hauteurTravail" value='<?= $produit['hauteurTravail'] ?>'>
+                    </div> 
+                    <div>
+                        <input type="text" name="largeur" value='<?= $produit['largeur'] ?>'> 
+                    </div>
+
+                    <div>
+                        <input type="text" name="longueur" value='<?= $produit['longueur'] ?>'>  
+                    </div>
+
+                    <div>
+                        <input type="text" name="environnementTravail" value='<?= $produit['environnementTravail'] ?>'>  
+                    </div>
+                    <div>
+                        <input type="text" name="energie" value='<?= $produit['energie'] ?>'>
+                    </div>
+                    
+                    <div>
+                        <input type="text" name="puissance" value='<?= $produit['puissance'] ?>'>
+                    </div>
+
+                    <div>
+                        <input type="text" name="poids" value='<?= $produit['poids'] ?>'>
+                    </div>
+                    <div>
+                        <input type="text" name="ref" value='<?= $produit['ref'] ?>'>
+                    </div>
+                    <input type="submit" value="envoyer" name="envoyer"><br>
+                    
+                </form>
+    </div>
+</section>

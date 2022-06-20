@@ -1,8 +1,14 @@
 <?php
 
-
+session_start();
 require('application/database.php');
 
+ 
+   if(isset($_SESSION['id_client'])){
+       $userInfo=getIdClient($_SESSION['id_client']);
+   } 
+
+   
 $categories=listCategories();
 
 if(isset($_POST['envoyer'])){
@@ -24,69 +30,49 @@ if(isset($_POST['envoyer'])){
         $poids=htmlspecialchars($_POST['poids']);
         $ref=htmlspecialchars($_POST['ref']);
         $nomc=htmlspecialchars($_POST['nomc']);
+        $quantestock=htmlspecialchars($_POST['quantestock']);
+        
 
         $errors=array();
        if(isset($_FILES) && !empty($_FILES['imageP']['name'])){
 
            if(!empty($nomp)){
-               if(!empty($prixUnite)){
-                   if(!empty($nomc)){
-                       if(!empty($descpUn)){
+                if(!empty($prixUnite)){
+                    if(!empty($quantestock)){
+                         if(!empty($nomc)){
+                            if(!empty($descpUn)){
 
-                           $tmpName=$_FILES['imageP']['tmp_name'];
-                               $name=$_FILES['imageP']['name']; 
-                               
-                       
-                               $tabExtension=explode('.',$name);
-                               $extension=strtolower(end($tabExtension));
-                       
-                               $extensionValide=['jpg','png','jpeg','gif'];
-                       
-                       
-                               if(in_array($extension,$extensionValide)){
-                                   $url=uniqid('',true);
-                                   $file=$url.'.'.$extension;
-                       
-                                   move_uploaded_file($tmpName,'image/'.$file);
-                                 
-                                   addProduits($file,$nomp,$descpUn,$descpDeux,$prixUnite,$charge,
-                                   $hauteurTravail,$largeur,$longueur,$environnementTravail,$energie,$puissance,
-                                   $poids,$ref,$nomc);
-                                   $succes='La catégorie est bien enregistrée !';
-                                   unset($file);
-                                   unset($nomp);
-                                   unset($descpUn);
-                                   unset($descpDeux);
-                                   unset($prixUnite);
-                                   unset($charge);
-                                   unset($hauteurTravail);
-                                   unset($largeur);
-                                   unset($longueur);
-                                   unset($environnementTravail);
-                                   unset($energie);
-                                   unset($puissance);
-                                   unset($poids);
-                                   unset($ref);
-                                   unset($nomc);
-                               }
-                       }
-                       else{
-                           $errors['descpUn']="Entrez une description au produit à ajouter !";
-                       }
-                   }else{
-                       $errors['nomc']="choisir une catégorie !";
-                   }
-               }else{
-                   $errors['prixUnite']="Entrez le prix du produit à ajouter !";
-               }
-
-           }else{
-               $errors['nomp']="Entrez le nom du produit à ajouter !";
-           }
-       }
-       else{
-           $errors['imageP']="Entrez l'image du produit à ajouter !";
-       }
+                                $tmpName=$_FILES['imageP']['tmp_name'];
+                                    $name=$_FILES['imageP']['name']; 
+                                    
+                            
+                                    $tabExtension=explode('.',$name);
+                                    $extension=strtolower(end($tabExtension));
+                            
+                                    $extensionValide=['jpg','png','jpeg','gif'];
+                            
+                            
+                                    if(in_array($extension,$extensionValide)){
+                                        $url=uniqid('',true);
+                                        $file=$url.'.'.$extension;
+                            
+                                        move_uploaded_file($tmpName,'image/'.$file);
+                                        
+                                        addProduits($file,$nomp,$descpUn,$descpDeux,$prixUnite,$charge,
+                                        $hauteurTravail,$largeur,$longueur,$environnementTravail,$energie,$puissance,
+                                        $poids,$ref,$quantestock,$nomc);
+                                        $succes='Le nouveau article est bien enregistré !';
+                                        unset($file);unset($nomp);unset($descpUn);unset($descpDeux);
+                                        unset($prixUnite);unset($charge);unset($hauteurTravail);unset($largeur);
+                                        unset($longueur);unset($environnementTravail);unset($energie);unset($puissance);
+                                        unset($poids);unset($ref);unset($quantestock);unset($nomc);
+                                    }
+                            }else{$errors['descpUn']="Entrez une description au produit à ajouter !";}
+                        }else{$errors['nomc']="choisir une catégorie !";}
+                    }else{$errors['quantestock']="Entrez la quantité du produit à ajouter !"; }
+                }else{$errors['prixUnite']="Entrez le prix du produit à ajouter !"; }
+            }else{$errors['nomp']="Entrez le nom du produit à ajouter !";}
+       }else{$errors['imageP']="Entrez l'image du produit à ajouter !";}
    }
 }
 

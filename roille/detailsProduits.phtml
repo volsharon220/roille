@@ -35,7 +35,7 @@
                                         <p><?= $unProduit['descpUn']; ?></p>
 
                                         
-                                        <form method="post" action="?action=add&id_produit=<?php echo $unProduit["id_produit"]; ?>">
+                                        <form method="post" action="panier.php?action=add&id_produit=<?= $unProduit['id_produit']; ?>">
                                             <div class="cart-action">
                                                 <div>
                                                     <label for="dateDebut">dateDebut</label><br>
@@ -49,11 +49,7 @@
                                                     <label for="quantity">Quantité</label><br>
                                                     <input type="text" id="quantity" class="product-quantity" name="quantity" value="1" size="2"/><br>
                                                 </div><br>
-                                                <div>
-                                                    <?php if(!empty($stock['quantestock'])) :?>
-                                                            <p class='erreur'><?= $stock['quantestock']; ?></p>
-                                                    <?php endif; ?>
-                                                </div>
+                                                
                                              <input type="submit" value="Louer" name="louer" class="btnAddAction" />
                                             </div>
                                         </form>

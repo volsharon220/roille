@@ -1,0 +1,49 @@
+<div id="payment">
+    <h1>Paiement</h1>
+</div>
+<div class="globalInfosService globalInfosContact">
+    <div class="infosContact infosService">
+        <form action="" method="post">
+                 <!-- Champs pour le paiement -->
+                <input type="text" name="name" placeholder="Votre nom">
+                <div>
+                    <?php if(!empty($errors['name'])) :?>
+                    <p class='erreur'><?= $errors['name']; ?></p>
+                    <?php endif; ?>
+                </div>
+                <input type="text" placeholder="Code de carte bleue" name="code" >
+                <div>
+                    <?php if(!empty($errors['code'])) :?>
+                    <p class='erreur'><?= $errors['code']; ?></p>
+                    <?php endif; ?>
+                </div>
+                <input type="text" placeholder="MM/YY" name="date" >
+                <div>
+                    <?php if(!empty($errors['date'])) :?>
+                    <p class='erreur'><?= $errors['date']; ?></p>
+                    <?php endif; ?>
+                </div>
+                <input type="text" placeholder="CVC" name="cryptogramme" >
+                <div>
+                    <?php if(!empty($errors['cryptogramme'])) :?>
+                    <p class='erreur'><?= $errors['cryptogramme']; ?></p>
+                    <?php endif; ?>
+                </div>
+
+                <input type="submit" value="Payer" name="envoyer">
+         </form>
+    </div>
+            <div class="infosContact infosService">
+                <h3>Contactez Notre Équipe De Location</h3>
+                <div>
+                    <p><i class="fas fa-phone-square"></i>&nbsp;&nbsp; Tel : (+33) 01.44.45.43.23</p>
+                    <p><i class="fas fa-envelope"></i>&nbsp;&nbsp; Mail : contact@roille.com</p>
+                </div>
+                <p>Vous avez besoin d’aide pour votre location, ou vous voulez simplement en savoir plus sur 
+                    nos offres de location ? Notre équipe est là pour vous aider</p>
+
+                    <a class="categorie" href="http://">nos catégories</a>
+                    <a class="contact" href="http://">nous contacter</a>
+            </div>
+</div>
+           

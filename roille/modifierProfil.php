@@ -30,25 +30,43 @@ if(isset($_POST['envoyer'])){
         $errors=array();
 if(isset($_FILES['newPicturs']) && !empty($_FILES['newPicturs']['name'])){
      
-        $tailleMax= 2097152; // taille maximal 2 Mo
+        // taille maximal 2 Mo
+        $tailleMax= 2097152;
+
+        //Les extensions valide
         $extensionValide=array('jpg');
+
+
         if($_FILES['newPicturs']['size'] <=$tailleMax){
             $pictur=$_FILES['newPicturs']['name'];
+
+            // extraire l'extension de l'image telecharger
              $extensionUpload=strtolower(substr(strrchr($pictur,'.'),1));
+
+             //verifier si l'extension est bien valide
             if(in_array($extensionUpload,$extensionValide)){
+            
+            //chemin de stockage de l'image telecharger
             $chemin='image/utilisateur/'.$_SESSION['id_client'].'.'.$extensionUpload;
             $filName=$_FILES['newPicturs']['tmp_name'];
+            //taille de l'image
             $size=getimagesize($filName);
+
+                    //deplacer l'image dans le nouveau dossier
                     $result=move_uploaded_file($filName,$chemin);
                     if($result){
+                        //creer une nouvelle image
                         $image=imagecreatefromjpeg($chemin);
-                        $width=imagesx($image);
-                        $height=imagesy($image);
-                        $new_width=150;
-                        $new_height=150;
+                        $width=imagesx($image); //largeur de l'image telecharger
+                        $height=imagesy($image); //langueur de l'image telecharger
+                        $new_width=150;//largeur de la nouvelle image
+                        $new_height=150; //langueur de la nouvelle image
+
+                        //attribuer les nouvelles dimensions a l'image creer
                         $thumb=imagecreatetruecolor($new_width,$new_height);
                         imagecopyresized ($thumb,$image,0,0,0,0,$new_width,$new_height,$width,$height);
                         imagejpeg($thumb,$chemin);
+                        //supprimer l'image telecharger
                         imagedestroy($image);
                         
                             modifClientPro($userInfo['id_client'].'.'.$extensionUpload,$nom,$addresse,$mdp,

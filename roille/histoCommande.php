@@ -6,9 +6,8 @@ if(isset($_SESSION['id_client'])){
     $userInfo=getIdClient($_SESSION['id_client']);
 } 
 
-$categories=listCategories();
-
+$commandes=getCommande($userInfo['id_client']);
 
 // Sélection et affichage du template PHTML.
-$template = 'categories';
+$template = 'histoCommande';
 include 'layout.phtml';

@@ -1,11 +1,15 @@
 <?php
-
+session_start();
 require('application/database.php');
 $nom=$_GET['categorie'];
-print_r($_GET);
 
+if(isset($_SESSION['id_client'])){
+    $userInfo=getIdClient($_SESSION['id_client']);
+} 
 
+//liste des articles
 $produits=getListProduitById($nom);
+//liste des catégories
 $categories=listCategories();
 
 // Sélection et affichage du template PHTML.

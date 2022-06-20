@@ -1,8 +1,14 @@
 
 
 <?php
+session_start();
+include("application/database.php");
 
-require('application/database.php');
+   
+   if(isset($_SESSION['id_client'])){
+       $userInfo=getIdClient($_SESSION['id_client']);
+   } 
+
 
 if(isset($_POST['envoyer'])){
    

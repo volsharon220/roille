@@ -1,0 +1,19 @@
+
+<div id="commande">
+                <h1>Mes commandes</h1>
+       </div>
+       
+    
+    <div class="infosClientProfil"> 
+                <ul>
+                <?php foreach($commandes as $commande) :?>
+                    <li><strong>Numéro Commande : </strong><?= $commande['id_com'] ?> &nbsp;&nbsp; Ref : </strong><?= $commande['ref'] ?></li>
+                    <li><strong>Nom : </strong><?= $commande['nomp'] ?></li>
+                    <li><strong>Prix HT : </strong><?= $commande['mtht'] ?></li>
+                    <li><strong>TVA : </strong><?= $commande['tva'] ?></li>
+                    <li><strong>TTC : </strong><?= $commande['mttc'] ?></li>
+                    <li><strong>Date de commande : </strong><?= $commande['date_comm'] ?></li>
+                    <li><strong>Date de livraison : </strong><?= $commande['date_commliv'] ?></li>
+                    <?php endforeach; ?>
+                </ul>
+       </div>

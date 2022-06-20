@@ -20,19 +20,20 @@
             </section><!--
 
                 -->
-                <section class="categoryProductGrille">
-                    <section  class="grille grilleCategory">
-                        <?php foreach($produits as $produit) : ?>
+<section class="categoryProductGrille">
+    <section  class="grille grilleCategory">
+        <?php foreach($produits as $produit) : ?>
+                
+            <div>
+                <p><img src="image/<?= $produit['imagep']; ?>" alt="image du produit"></p>
+                <h3><?= $produit['nomp']; ?></h3>
+                <p><?= $produit['prixUnite']; ?> €</p>
+                <a href="detailsProduits.php?id_produit=<?= $produit['id_produit']; ?>">
+                                        voir plus</a>
+            </div>
                     
-                            <div>
-                                <p><img src="image/<?= $produit['imagep']; ?>" alt="image du produit"></p>
-                                <h3><?= $produit['nomp']; ?></h3>
-                                <p><?= $produit['prixUnite']; ?> €</p>
-                                <a href="detailsProduits.php?id_produit=<?= $produit['id_produit']; ?>">voir plus</a>
-                            </div>
-                    
-                        <?php endforeach;?>
-                    </section>
-                </section>
+        <?php endforeach;?>
+    </section>
+</section>
 
        </section>

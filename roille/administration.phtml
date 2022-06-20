@@ -5,24 +5,51 @@
 
 <section class="category">
     
-        <div class="categoryProduct">   
-                    <ul>
-                    
-                    <li id="produit">
-                            <a href="administration.php">Produits</a>
-                    </li>
+        <div class="categoryProduct"> 
+                <form action="" method="post">
+                        <ul>
                         
-                        <li id="cat">Catégories</li>
-                        <li id="Particular">Clients Particulier</li>
-                        <li id='professional'>Clients Professionnels</li>
-                        <li id="ajoutProduit">Ajouter un article à louer</li>
-                        <li id="ajoutCat">Ajouter une catégorie</li>
-                    </ul>
+                                <li id="produit">
+                                        <button type="submit" name="prod">Produits</button>
+                                </li>
+                                        
+                                        <li id="cat">
+                                                  <button type="submit" name="cat">Catégories</button>
+                                        </li>
+                                        
+                                        <li id="clientParc">
+                                                  <button type="submit" name="clientParc">Clients Particulier</button>
+                                        </li>
+                                        <li id="clientPro">
+                                                  <button type="submit" name="clientPro">Clients Professionnels</button>
+                                        </li>
+
+                                        <li id="ajoutProduit">
+                                                 <a href="ajoutProduits.php">Ajouter un article à louer</a>
+                                        </li>
+                                        <li id="ajoutCat">
+                                                 <a href="ajoutCategories.php">Ajouter une catégorie</a>
+                                        </li>
+                                </ul>
+                </form>  
+                    
+                
         </div><!--
 
                 -->
         <div id="resultAdmin" class="categoryProductGrille detailComplementaireProduit">
-                
-               
+                <?php if(isset($_POST['prod']) || isset($_GET['page'])){
+                        include 'application/getProduits.php';
+                } 
+                elseif(isset($_POST['cat']) || isset($_GET['page'])){
+                        include 'application/getCategories.php';
+                } 
+                elseif(isset($_POST['clientParc']) || isset($_GET['page'])){
+                        include 'application/getParticulier.php';
+                }
+                elseif(isset($_POST['clientPro']) || isset($_GET['page'])){
+                        include 'application/getProfessionnal.php';
+                }
+               ?>
         </div>
 </section>

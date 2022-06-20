@@ -25,12 +25,13 @@ if(isset($_SESSION["cart_item"])){
 				$dateF = new DateTime($item["dateF"]);
 				$diff = $dateF->diff($dateD)->format("%a");
 print_r($diff);
+print_r($_SESSION["cart_item"]);
 		$item_price =($item["prixUnite"]*($item["quantity"]*$diff));
   
 		?>
 			<tr>
 				<td>
-					<img src="<?php echo $item["imagep"]; ?>" class="cart-item-image" /><?php echo $item["nomp"]; ?>
+					<img src="image/<?php echo $item["imagep"]; ?>" />
 				</td>
 				<td>
 					<?php echo $item["ref"]; ?>
@@ -78,8 +79,24 @@ print_r($diff);
 <?php 
 }
 ?>
-<form action="" method="post">
+<form  action="" method="post">
 	<input type="submit" value="commander" name="commande">
+
+    <div>
+        <?php if(!empty($erreur['quantestock'])) :?>
+           <p class='erreur'><?= $erreur['quantestock']; ?></p>
+        <?php endif; ?>
+    </div>
+    <div>
+        <?php if(!empty($erreur['dateD'])) :?>
+           <p class='erreur'><?= $erreur['dateD']; ?></p>
+        <?php endif; ?>
+    </div>
+    <div>
+        <?php if(!empty($erreur['dateF'])) :?>
+           <p class='erreur'><?= $erreur['dateF']; ?></p>
+        <?php endif; ?>
+    </div>
 </form>
 
 </div>

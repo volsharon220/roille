@@ -1,0 +1,16 @@
+<form action="" method="post" enctype="multipart/form-data">
+
+    <div>
+         <input type="file" name="imageCat" value='<?= $categorie['imagec'] ?>'><br> 
+    </div>
+    
+    <div>
+        <input type="text" name="nomc" value='<?= $categorie['nom'] ?>'><br>
+    </div>
+   
+    <div>
+        <textarea name="descc" id="" cols="30" rows="10"><?= $categorie['descc'] ?></textarea>  
+    </div>
+    <input type="submit" value="envoyer" name="envoyer"><br>
+    
+</form>

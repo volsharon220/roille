@@ -1,37 +1,42 @@
-<form action="" method="post" enctype="multipart/form-data">
+<section class="globalInfosService globalInfosContact">
+    <div class="infosContact infosService">
+        <form action="" method="post" enctype="multipart/form-data">
 
-    <div>
-         <input type="file" name="imageCat" placeholder="Entrez une image" value='<?php if(isset($name)) echo $name; ?>'><br>
-         <div>
-            <?php if(!empty($errors['imageCat'])) :?>
-                <p class='erreur'><?= $errors['imageCat']; ?></p>
-            <?php endif; ?>
-         </div>
+            <div>
+                <input type="file" name="imageCat" placeholder="Entrez une image" value='<?php if(isset($name)) echo $name; ?>'><br>
+                <div>
+                    <?php if(!empty($errors['imageCat'])) :?>
+                        <p class='erreur'><?= $errors['imageCat']; ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div>
+                <input type="text" name="nomc" placeholder="Entrez le nom de la catégorie" value='<?php if(isset($nomc)) echo $nomc; ?>'><br>
+                <div>
+                    <?php if(!empty($errors['nomc'])) :?>
+                        <p class='erreur'><?= $errors['nomc']; ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div>
+                <textarea name="descc" id="" cols="30" rows="10" placeholder='Entrez la description de la catégorie' value='<?php if(isset($descc)) echo $descc; ?>'></textarea>
+                <div>
+                    <?php if(!empty($errors['descc'])) :?>
+                        <p class='erreur'><?= $errors['descc']; ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div>
+                <?php if(!empty($succes)) :?>
+                        <p class='erreur'><?= $succes; ?></p>
+                    <?php endif; ?>
+            </div>
+            <input type="submit" value="envoyer" name="envoyer"><br>
+
+        </form>
     </div>
     
-    <div>
-        <input type="text" name="nomc" placeholder="Entrez le nom de la catégorie" value='<?php if(isset($nomc)) echo $nomc; ?>'><br>
-        <div>
-            <?php if(!empty($errors['nomc'])) :?>
-                <p class='erreur'><?= $errors['nomc']; ?></p>
-            <?php endif; ?>
-        </div>
-    </div>
-   
-    <div>
-        <textarea name="descc" id="" cols="30" rows="10" placeholder='Entrez la description de la catégorie' value='<?php if(isset($descc)) echo $descc; ?>'></textarea>
-        <div>
-             <?php if(!empty($errors['descc'])) :?>
-                <p class='erreur'><?= $errors['descc']; ?></p>
-            <?php endif; ?>
-        </div>
-    </div>
-    
-    <div>
-        <?php if(!empty($succes)) :?>
-                <p class='erreur'><?= $succes; ?></p>
-            <?php endif; ?>
-    </div>
-    <input type="submit" value="envoyer" name="envoyer"><br>
-    
-</form>
+</section>
