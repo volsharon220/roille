@@ -1,7 +1,11 @@
 
     <?php
 
-require('database.php');
+// On se connecte à là base de données
+$db=new PDO('mysql:host=localhost;dbname=roille;charset=utf8','root','');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
     // On détermine sur quelle page on se trouve
     if(isset($_GET['page']) && !empty($_GET['page'])){
         $currentPage = (int) strip_tags($_GET['page']);
@@ -53,7 +57,7 @@ require('database.php');
 
             <div class="row">
                 <section class="col-12">
-                    <h1>Liste des articles</h1>
+                    <h1>Liste des articles :</h1><br><br>
                     <table class="table">
                         <thead>
                             <tr>
@@ -74,16 +78,26 @@ require('database.php');
                                     <td><?= $article['descpDeux']; ?></td>
                                     <td>
                                         <strong>Charge :</strong><?= $article['hauteurTravail']; ?><br>
-                                        <strong>HauteurTravail :</strong><?= $article['longueur']; ?><br>
-                                        <strong>Longueur :</strong><?= $article['largeur']; ?><br>
-                                        <strong>Largueur :</strong><?= $article['environnementTravail']; ?><br>
+                                        <strong>Longueur :</strong><?= $article['longueur']; ?><br>
+                                        <strong>Largueur :</strong><?= $article['largeur']; ?><br>
                                         <strong>EnvironnementTravail :</strong><?= $article['environnementTravail']; ?><br>
                                         <strong>Puissance :</strong><?= $article['puissance']; ?><br>
                                         <strong>Poids :</strong><?= $article['poids']; ?><br>
                                         <strong>Ref :</strong><?= $article['ref']; ?>
                                     </td>
-                                    <td><i class="fa-solid fa-xmark"></i> </td>
-                                    <td><i class="fa-solid fa-pen"></i></td>
+                                    
+                                    <td>
+                                        <a href="modifierProduits.php?id=<?= intval($article['id_produit']) ?>">
+                                             <i class="fa-solid fa-pen"></i> 
+                                        </a>
+                                    </td>
+                                    
+                                    <td>
+                                        <a href="deleteProduits.php?id=<?= intval($article['id_produit']) ?>">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </a>
+                                    </td>
+                                    
                                  </tr>
                             <?php endforeach;?>
 
@@ -93,16 +107,19 @@ require('database.php');
                     </table>
                     <nav>
                         <ul class="pagination">
-                            <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                                <a href="administration.php?page=<?= $currentPage - 1 ?>" id="precedent" class="page-link">Précédente</a>
+                            <li>
+                                <a href="administration.php?page=<?= $currentPage - 1 ?>"
+                                    id="precedent" class="page-link">Précédente</a>
                             </li>
                             <?php for($page = 1; $page <= $pages; $page++): ?>
-                                <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                                    <a href="administration.php?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                                <li>
+                                    <a href="administration.php?page=<?= $page ?>"
+                                     class="page-link"><?= $page ?></a>
                                 </li>
                             <?php endfor ?>
-                            <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                                <a href="administration.php?page=<?= $currentPage + 1 ?>" id="suivant" class="page-link">Suivante</a>
+                            <li>
+                                <a href="administration.php?page=<?= $currentPage + 1 ?>"
+                                 id="suivant" class="page-link">Suivante</a>
                             </li>
                         </ul>
                     </nav>

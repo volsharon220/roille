@@ -1,5 +1,8 @@
 <?php
 
+// On se connecte à là base de données
+$db=new PDO('mysql:host=localhost;dbname=roille;charset=utf8','root','');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // On détermine sur quelle page on se trouve
 if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -8,9 +11,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
     $currentPage = 1;
 }
 
-// On se connecte à là base de données
-require('database.php');
-$db=createconnection();
+
 // On détermine le nombre total d'articles
 $sql = 'SELECT COUNT(*) AS nb_articles FROM categories;';
 
@@ -69,10 +70,21 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $categorie['imagec']; ?></td>
                                 <td><?= $categorie['nom']; ?></td>
                                 <td><?= $categorie['descc']; ?></td>
-                                <td><i class="fa-solid fa-xmark"></i> </td>
-                                <td><i class="fa-solid fa-pen"></i></td>
+                                <td>
+                                        <a href="modifierCategories.php?id=<?= intval($categorie['id_categorie']) ?>">
+                                             <i class="fa-solid fa-pen"></i> 
+                                        </a>
+                                    </td>
+                                    
+                                    <td>
+                                        <a href="deleteCategories.php?id=<?= intval($categorie['id_categorie']) ?>">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </a>
+                                    </td>
                             </tr>
+
                         <?php endforeach;?>
+
                     </tbody>
                 </table>
                 <nav>

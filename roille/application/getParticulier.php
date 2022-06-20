@@ -1,4 +1,8 @@
 <?php
+// On se connecte à là base de données
+$db=new PDO('mysql:host=localhost;dbname=roille;charset=utf8','root','');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
 
 // On détermine sur quelle page on se trouve
@@ -8,9 +12,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
     $currentPage = 1;
 }
 
-// On se connecte à là base de données
-require('database.php');
-$db=createconnection();
+
 // On détermine le nombre total d'articles
 $sql = 'SELECT COUNT(*) AS nb_articles FROM particulier;';
 
@@ -78,23 +80,25 @@ $particuliers = $query->fetchAll(PDO::FETCH_ASSOC);
                                     <?= $paticulier['pays']; ?>
                                 </td>
                                 
-                                <td><i class="fa-solid fa-xmark"></i> </td>
-                                <td><i class="fa-solid fa-pen"></i></td>
+                                
+                                <td><a href="deleteParticulier.php?id=<?= intval($paticulier['id_client']) ?>">
+                                <i class="fa-solid fa-trash-can"></i></a>
+                                 </td>
                             </tr>
                         <?php endforeach;?>
                     </tbody>
                 </table>
                 <nav>
                     <ul class="pagination">
-                        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                        <li class="page-item">
                             <a href="administration.php?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
                         </li>
                         <?php for($page = 1; $page <= $pages; $page++): ?>
-                            <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                            <li class="page-item">
                                 <a href="administration.php?page=<?= $page ?>" class="page-link"><?= $page ?></a>
                             </li>
                         <?php endfor ?>
-                        <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                        <li class="page-item ">
                             <a href="administration.php?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
                         </li>
                     </ul>

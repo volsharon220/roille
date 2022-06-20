@@ -1,14 +1,17 @@
 <?php
 
 function createconnection(){
+    
     $pdo=new PDO('mysql:host=localhost;dbname=roille;charset=utf8','root','');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $pdo;
 }
 function registerParticulier($nom,$prenom,$mdp,$addresse,$codeP,$ville,$pays,$phone,$mail){
     $pdo=createconnection();
-    $req=$pdo->prepare("INSERT INTO particulier (avatar,nom,prenom,mdp,addresse,codeP,ville,pays,phone,mail)
-                        values (null,:nom,:prenom,:mdp,:addresse,:codeP,:ville,:pays,:phone,:mail)");
+    $req=$pdo->prepare("INSERT INTO particulier (avatar,nom,prenom,mdp,addresse,codeP,ville,
+                        pays,phone,mail)
+                        values (null,:nom,:prenom,:mdp,:addresse,:codeP,:ville,:pays,:phone,
+                        :mail)");
     $req->execute(array(
         ':nom'=>$nom,
         ':prenom'=>$prenom,
@@ -22,11 +25,14 @@ function registerParticulier($nom,$prenom,$mdp,$addresse,$codeP,$ville,$pays,$ph
     ));                      
 }
 
-function registerProfessionnel($nom,$mdp,$addresse,$codeP,$ville,$pays,$phone,$mail,$numSiret,$statut_juridique){
+function registerProfessionnel($nom,$mdp,$addresse,$codeP,$ville,$pays,$phone,$mail,$numSiret,
+                                $statut_juridique){
     $pdo=createconnection();
     $req=$pdo->prepare("INSERT INTO professionnel 
-                        (avatar,nom,mdp,addresse,codeP,ville,pays,phone,mail,numSiret,statut_juridique)
-                        values (null,:nom,:mdp,:addresse,:codeP,:ville,:pays,:phone,:mail,:numSire,:statut_jurid)");
+                        (avatar,nom,mdp,addresse,codeP,ville,pays,phone,mail,numSiret,
+                        statut_juridique)
+                        values (null,:nom,:mdp,:addresse,:codeP,:ville,:pays,:phone,:mail,
+                        :numSire,:statut_jurid)");
     $req->execute(array(
         ':nom'=>$nom,
         ':mdp'=>$mdp,
@@ -63,12 +69,12 @@ function listCategories(){
      
 
 function addProduits($image,$nomp,$descpUn,$descpDeux,$prixUnite,$charge,$hauteurTravail,$largeur,$longueur,
-                    $environnementTravail,$energie,$puissance,$poids,$ref,$nomc){
+                    $environnementTravail,$energie,$puissance,$poids,$ref,$quantestock,$nomc){
     $pdo=createconnection();
     $req=$pdo->prepare("INSERT INTO produit (imagep,nomp,descpUn,descpDeux,prixUnite,charge,hauteurTravail,
-                        largeur,longueur,environnementTravail,energie,puissance,poids,ref,nomcat) 
+                        largeur,longueur,environnementTravail,energie,puissance,poids,ref,quantestock,nomcat) 
                         values (:imagep,:nomp,:descpUn,:descpDeux,:prixUnite,:charge,:hauteurTravail,:largeur,
-                        :longueur,:environnementTravail,:energie,:puissance,:poids,:ref,:nomc)");
+                        :longueur,:environnementTravail,:energie,:puissance,:poids,:ref,:quantestock,:nomc)");
     $req->execute(array(
         ':imagep'=>$image,
         ':nomp'=>$nomp,
@@ -84,9 +90,25 @@ function addProduits($image,$nomp,$descpUn,$descpDeux,$prixUnite,$charge,$hauteu
         ':puissance'=>$puissance,
         ':poids'=>$poids,
         ':ref'=>$ref,
+        ':quantestock'=>$quantestock,
         ':nomc'=>$nomc
     ));    
 }
+
+
+function infosPayemnt($nom,$code,$date,$cryptogramme,$id){
+    $pdo=createconnection();
+    $req=$pdo->prepare("INSERT INTO payment (nom,code,dateNaissance,crypto,id_client) 
+                                            values (:nom,:code,:dateNaissance,:crypto,:id_client)");
+    $req->execute(array(
+        ':nom'=>$nom,
+        ':code'=>$code,
+        ':dateNaissance'=>$date,
+        ':crypto'=>$cryptogramme,
+        ':id_client'=>$id
+    ));    
+}
+
 
 function listProduits(){
     $pdo=createconnection();
@@ -124,6 +146,7 @@ function getListProduitById($nomc){
     return $details;
 }
 
+//requete qui permet de recuperer le detail d'un produit
 function getDetailProduitById($id){
     $pdo=createconnection();
     $req=$pdo->prepare('SELECT * FROM produit WHERE id_produit=?');
@@ -133,17 +156,62 @@ function getDetailProduitById($id){
     return $details;
 }
 
-function addCommande($quantite_com,$idProduit,$dateDebut,$dateFin){
+//requete qui permet de recuperer un produit par rapport a son id dans le ficchier panier.php
+function getDetailProduitsById($id){
     $pdo=createconnection();
-    $req=$pdo->prepare("INSERT INTO detail_com (quantite_com,id_produit,dateD,dateF) 
-                        values (:quantite_com,:id_produit,:dateD,:dateF)");
+    $req=$pdo->prepare('SELECT * FROM produit WHERE id_produit=?');
+
+    $req->execute(array($id));
+    $details=$req->fetch(PDO::FETCH_ASSOC);
+    return $details;
+}
+
+
+
+function getDetailCategorieById($id){
+    $pdo=createconnection();
+    $req=$pdo->prepare('SELECT * FROM categories WHERE id_categorie=?');
+
+    $req->execute(array($id));
+    $details=$req->fetchAll(PDO::FETCH_ASSOC);
+    return $details;
+}
+
+
+function maxId(){
+    $pdo=createconnection();
+    $req=$pdo->prepare("select max(id_com) from detail_com");
+
+    $req->execute(array());
+    $details=$req->fetch(PDO::FETCH_ASSOC);
+    return $details;
+}
+
+
+
+function addCommande($quantite_com,$idProduit,$dateDebut,$dateFin,$id_client){
+    $pdo=createconnection();
+    $req=$pdo->prepare("INSERT INTO detail_com (quantite_com,id_produit,dateD,dateF,id_client) 
+                        values (:quantite_com,:id_produit,:dateD,:dateF,:id_client)");
     $req->execute(array(
         ':quantite_com'=>$quantite_com,
         ':id_produit'=>$idProduit,
         ':dateD'=>$dateDebut,
-        ':dateF'=>$dateFin
+        ':dateF'=>$dateFin,
+        ':id_client'=>$id_client
     ));    
 }
+
+
+function getCommande($id){
+    $pdo=createconnection();
+    $req=$pdo->prepare('SELECT * FROM commande c,detail_com d,produit p 
+                        WHERE c.id_com=? and d.id_produit=p.id_produit and d.id_com=c.id_com');
+    $req->execute(array($id));
+    $result=$req->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
 
 function getIdClient($id){
     $pdo=createconnection();
@@ -168,17 +236,68 @@ function getIdClientPro($id){
     return $idUser;
 }
 
-function modifClientParc($avatar,$nom,$prenom,$mdp,$addresse,$codeP,$ville,$pays,$phone,$mail,$id){
+
+function modifClientParc($avatar,$nom,$prenom,$mdp,$addresse,$codeP,$ville,$pays,$phone,$mail,
+                        $id){
     $pdo=createconnection();
-        $req=$pdo->prepare('UPDATE particulier SET avatar=?,nom=?,prenom=?,mdp=?,addresse=?,codeP=?,ville=?,pays=?,
+        $req=$pdo->prepare('UPDATE particulier SET avatar=?,nom=?,prenom=?,mdp=?,addresse=?,
+                            codeP=?,ville=?,pays=?,
                             phone=?,mail=? WHERE id_client=?');
-        $req->execute(array($avatar,$nom,$prenom,$mdp,$addresse,$codeP,$ville,$pays,$phone,$mail,$id));
+        $req->execute(array($avatar,$nom,$prenom,$mdp,$addresse,$codeP,$ville,$pays,$phone,
+                            $mail,$id));
 }
 
-function modifClientPro($avatar,$nom,$addresse,$mdp,$codeP,$ville,$pays,$phone,$mail,$statuJ,$numS,$id){
+function modifClientPro($avatar,$nom,$addresse,$mdp,$codeP,$ville,$pays,$phone,$mail,$statuJ,
+                        $numS,$id){
     $pdo=createconnection();
-        $req=$pdo->prepare('UPDATE professionnel SET avatar=?,nom=?,mdp=?,addresse=?,codeP=?,ville=?,pays=?,
+        $req=$pdo->prepare('UPDATE professionnel SET avatar=?,nom=?,mdp=?,addresse=?,codeP=?,
+                            ville=?,pays=?,
                             phone=?,mail=?,numSiret=?,statut_juridique=? WHERE id_client=?');
-        $req->execute(array($avatar,$nom,$addresse,$mdp,$codeP,$ville,$pays,$phone,$mail,$statuJ,$numS,$id));
+        $req->execute(array($avatar,$nom,$addresse,$mdp,$codeP,$ville,$pays,$phone,$mail,
+                            $statuJ,$numS,$id));
 }
+
+
+function deleteProduit($id){
+    $pdo=createconnection();
+    $req=$pdo->prepare('delete from produit where id_produit=?');
+    $req->execute(array($id));
+}
+
+
+function deleteCategories($id){
+    $pdo=createconnection();
+    $req=$pdo->prepare('delete from categories where id_categorie=?');
+    $req->execute(array($id));
+}
+
+function deleteClientParticulier($id){
+    $pdo=createconnection();
+    $req=$pdo->prepare('delete from particulier where id_client=?');
+    $req->execute(array($id));
+}
+
+function deleteClientPro($id){
+    $pdo=createconnection();
+    $req=$pdo->prepare('delete from professionnel where id_client=?');
+    $req->execute(array($id));
+}
+
+function editeProduits($imagep,$nomp,$descpUn,$descpDeux,$prixUnite,$charge,$hauteurTravail,$largeur,
+                      $longueur,$environnementTravail,$energie,$puissance,$poids,$ref,$quantestock,$nomcat,$id){
+    $pdo=createconnection();
+        $req=$pdo->prepare('UPDATE produit SET imagep=?,nomp=?,descpUn=?,descpDeux=?,prixUnite=?,charge=?,
+        hauteurTravail=?,largeur=?,longueur=?,environnementTravail=?,energie=?,puissance=?,poids=?,ref=?,
+        quantestock=?,nomcat=? WHERE id_produit=?');
+        $req->execute(array($imagep,$nomp,$descpUn,$descpDeux,$prixUnite,$charge,$hauteurTravail,$largeur,
+        $longueur,$environnementTravail,$energie,$puissance,$poids,$ref,$quantestock,$nomcat,$id));
+}
+
+function editeCategories($imagec,$nom,$descc,$id){
+    $pdo=createconnection();
+        $req=$pdo->prepare('UPDATE categories SET imagec=?,nom=?,descc=? WHERE id_categorie=?');
+        $req->execute(array($imagec,$nom,$descc,$id));
+}
+
+
 ?>

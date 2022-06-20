@@ -1,5 +1,8 @@
 <?php
 
+// On se connecte à là base de données
+$db=new PDO('mysql:host=localhost;dbname=roille;charset=utf8','root','');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // On détermine sur quelle page on se trouve
 if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -8,9 +11,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
     $currentPage = 1;
 }
 
-// On se connecte à là base de données
-require('database.php');
-$db=createconnection();
+
 // On détermine le nombre total d'articles
 $sql = 'SELECT COUNT(*) AS nb_articles FROM professionnel;';
 
@@ -81,8 +82,9 @@ $professionnels = $query->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $professionnel['numSiret']; ?></td>
                                 <td><?= $professionnel['statut_juridique']; ?></td>
                                 
-                                <td><i class="fa-solid fa-xmark"></i> </td>
-                                <td><i class="fa-solid fa-pen"></i></td>
+                                <td><a href="deleteProfessionnel.php?id=<?= intval($professionnel['id_client']) ?>">
+                                     <i class="fa-solid fa-trash-can"></i></a>
+                                 </td>
                             </tr>
                         <?php endforeach;?>
                     </tbody>
