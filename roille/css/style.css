@@ -27,7 +27,10 @@
  #connexion,
  #categories,
  #detailsProduit,
- #profil{
+ #profil,
+ #payment,
+ #commande
+ {
    text-align: center;
      background-image:  linear-gradient(
         rgba(181, 112, 112, 0.6), 
@@ -48,7 +51,9 @@
  #connexion,
  #categories,
  #detailsProduit,
- #profil{
+ #profil,
+ #payment,
+ #commande{
    height: 313px; 
  }
 
@@ -76,7 +81,9 @@
 #connexion h1,
 #categories h1,
 #detailsProduit h1,
-#profil h1{
+#profil h1,
+#payment h1,
+#commande h1{
   font-size: 3rem;
   color:#fff;
 }
@@ -584,4 +591,88 @@ span{
   padding: 15px;
   text-align: left;
   border-bottom: 2px solid #f9bb2d;
+}
+
+.banniere{
+   border-top: solid 5px #f9bb2d;
+   background-color: #00272d;
+   position :fixed;
+   bottom: 0;
+   left:0;
+   width: 100%;
+   color:#fff;
+   display: flex;
+   justify-content: space-around;
+   padding: 10px;
+   opacity: 0.9;
+}
+.text-banniere{
+   padding: 3px;
+}
+.button-banniere a{
+   display: inline-block;
+   background-color: #f9bb2d;
+   padding: 10px 4px 10px 4px;
+   border-radius: 7px;
+   color: #fff;
+   text-decoration: none;
+   margin: 8px 0 0 0;
+}
+
+
+/* pagination partie administration */
+.pagination{
+   margin: 20px 0 0 0;
+   text-align: center;
+}
+.pagination li{
+   display: inline-block;
+}
+.page-link{
+   padding: 10px;
+   background-color: #f9bb2d;
+   color:#fff;
+   text-decoration: none;
+   margin: 1px;
+   border-radius: 5px;
+}
+.page-link:hover{
+   background-color: #00272d;
+}
+.fa-solid{
+   color: #f9bb2d;
+}
+
+.table{
+   border:1px solid #ddd;
+   border-collapse: collapse;
+   box-shadow: 0 5px 50px rgba(0, 0, 0, 0.15);
+}
+.table tr,.table th,.table td{
+   text-align: center;
+   border:1px solid #ddd;
+}
+.table th{
+   background-color:#00272d;
+   color:#fff;
+   text-align: left;
+}
+.table tr:hover{
+   background-color: #00272d;
+   color:#fff;
+}
+
+.selectCat{
+   width: 80%;
+   padding: 10px;
+}
+
+.modifProfil{
+   display: inline-block;
+   background-color: #f9bb2d;
+   color:#fff;
+   padding: 10px 30px;
+   text-decoration: none;
+   margin: 20px;
+   border-radius: 5px;
 }

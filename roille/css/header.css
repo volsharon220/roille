@@ -3,9 +3,8 @@ header {
     background-color:#00272d;
    
 }
-header nav img{
-    width: 90px;
-    
+header nav div img{
+    width: 80px;
 }
 nav ul{
 	list-style-type: none;
@@ -26,15 +25,13 @@ header nav{
 	display: flex;
 	-webkit-box-pack: justify;
 	    -ms-flex-pack: justify;
-            justify-content: space-around;
+            justify-content:space-between;
             
             -webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
     text-transform: uppercase;
-    margin-left: 40%;
-
-    
+    margin: 0 15px 0 15px;
 }
 
 header a{
